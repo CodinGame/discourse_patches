@@ -1,0 +1,34 @@
+diff --git a/app/assets/javascripts/discourse/lib/click-track.js.es6 b/app/assets/javascripts/discourse/lib/click-track.js.es6
+index a0e8264..f6c7bd7 100644
+--- a/app/assets/javascripts/discourse/lib/click-track.js.es6
++++ b/app/assets/javascripts/discourse/lib/click-track.js.es6
+@@ -70,7 +70,7 @@ export default {
+     if (!$link.data('href')) {
+       $link.addClass('no-href');
+       $link.data('href', $link.attr('href'));
+-      $link.attr('href', null);
++//      $link.attr('href', null);
+       // Don't route to this URL
+       $link.data('auto-route', true);
+     }
+diff --git a/app/assets/javascripts/discourse/views/topic.js.es6 b/app/assets/javascripts/discourse/views/topic.js.es6
+index a0520d5..8dbfbb6 100644
+--- a/app/assets/javascripts/discourse/views/topic.js.es6
++++ b/app/assets/javascripts/discourse/views/topic.js.es6
+@@ -47,7 +47,7 @@ const TopicView = Ember.View.extend(AddCategoryClass, AddArchetypeClass, Scrolli
+ 
+     $(window).on('resize.discourse-on-scroll', () => this.scrolled());
+ 
+-    this.$().on('mouseup.discourse-redirect', '.cooked a, a.track-link', function(e) {
++    this.$().on('click.discourse-redirect', '.cooked a, a.track-link', function(e) {
+       // bypass if we are selecting stuff
+       const selection = window.getSelection && window.getSelection();
+       if (selection.type === "Range" || selection.rangeCount > 0) {
+@@ -70,7 +70,7 @@ const TopicView = Ember.View.extend(AddCategoryClass, AddArchetypeClass, Scrolli
+     $(window).unbind('resize.discourse-on-scroll');
+ 
+     // Unbind link tracking
+-    this.$().off('mouseup.discourse-redirect', '.cooked a, a.track-link');
++    this.$().off('click.discourse-redirect', '.cooked a, a.track-link');
+ 
+     this.resetExamineDockCache();
