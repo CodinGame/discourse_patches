@@ -2,11 +2,11 @@
 +++ b/app/controllers/session_controller.rb
 @@ -4,7 +4,7 @@ require_dependency 'single_sign_on'
  class SessionController < ApplicationController
- 
+
    skip_before_filter :redirect_to_login_if_required
 -  skip_before_filter :preload_json, :check_xhr, only: ['sso', 'sso_login', 'become', 'sso_provider']
 +  skip_before_filter :preload_json, :check_xhr, only: ['sso', 'sso_login', 'become', 'sso_provider', 'destroy']
- 
+
    def csrf
      render json: {csrf: form_authenticity_token }
 diff --git a/config/routes.rb b/config/routes.rb
@@ -19,3 +19,5 @@ index 518fab5..df343bb 100644
    get "session/csrf" => "session#csrf"
 +  get "session/logout" => "session#destroy"
    get "composer-messages" => "composer_messages#index"
+
+   resources :users, except: [:show, :update, :destroy] do
