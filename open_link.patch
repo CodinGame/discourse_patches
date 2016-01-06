@@ -32,3 +32,4 @@ index a0520d5..8dbfbb6 100644
 +    this.$().off('click.discourse-redirect', '.cooked a, a.track-link');
  
      this.resetExamineDockCache();
+
