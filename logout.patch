@@ -1,14 +1,5 @@
 --- a/app/controllers/session_controller.rb
 +++ b/app/controllers/session_controller.rb
-@@ -4,7 +4,7 @@ require_dependency 'single_sign_on'
- class SessionController < ApplicationController
-
-   skip_before_filter :redirect_to_login_if_required
--  skip_before_filter :preload_json, :check_xhr, only: ['sso', 'sso_login', 'become', 'sso_provider']
-+  skip_before_filter :preload_json, :check_xhr, only: ['sso', 'sso_login', 'become', 'sso_provider', 'destroy']
-
-   def csrf
-     render json: {csrf: form_authenticity_token }
 @@ -102,7 +102,7 @@ class SessionController < ApplicationController
          if return_path !~ /^\/[^\/]/
            begin
@@ -19,14 +10,14 @@
              return_path = path("/")
            end
 diff --git a/config/routes.rb b/config/routes.rb
-index 518fab5..df343bb 100644
+index 30d47a8..310492b 100644
 --- a/config/routes.rb
 +++ b/config/routes.rb
-@@ -237,6 +237,7 @@ Discourse::Application.routes.draw do
+@@ -255,6 +255,7 @@ Discourse::Application.routes.draw do
    get "session/sso_provider" => "session#sso_provider"
    get "session/current" => "session#current"
    get "session/csrf" => "session#csrf"
 +  get "session/logout" => "session#destroy"
-   get "composer-messages" => "composer_messages#index"
+   get "composer_messages" => "composer_messages#index"
 
    resources :users, except: [:show, :update, :destroy] do
