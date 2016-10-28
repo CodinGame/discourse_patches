@@ -1,5 +1,5 @@
---- app/assets/javascripts/discourse/components/topic-navigation.js.es6	2016-10-28 10:22:24.143613084 +0000
-+++ app/assets/javascripts/discourse/components/topic-navigation.js.es6.2	2016-10-28 10:23:27.411613430 +0000
+--- a/app/assets/javascripts/discourse/components/topic-navigation.js.es6	2016-10-28 10:22:24.143613084 +0000
++++ b/app/assets/javascripts/discourse/components/topic-navigation.js.es6	2016-10-28 10:23:27.411613430 +0000
 @@ -96,6 +96,7 @@
    },
  
