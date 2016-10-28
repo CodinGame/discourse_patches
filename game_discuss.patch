@@ -16,7 +16,7 @@
 +    };
 +
 +    if(!$('html').hasClass('game-discuss')) exec();
-+    else setTimeout(exec, 1500);
++    else setTimeout(exec, 2500);
    },
  
    willDestroyElement() {
