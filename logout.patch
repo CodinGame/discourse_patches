@@ -1,14 +1,3 @@
---- a/app/controllers/session_controller.rb
-+++ b/app/controllers/session_controller.rb
-@@ -102,7 +102,7 @@ class SessionController < ApplicationController
-         if return_path !~ /^\/[^\/]/
-           begin
-             uri = URI(return_path)
--            return_path = path("/") unless uri.host == Discourse.current_hostname
-+            return_path = path("/") unless (uri.host == Discourse.current_hostname or uri.host == 'www.codingame.com')
-           rescue
-             return_path = path("/")
-           end
 diff --git a/config/routes.rb b/config/routes.rb
 index 30d47a8..310492b 100644
 --- a/config/routes.rb
