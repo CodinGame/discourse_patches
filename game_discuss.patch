@@ -1,8 +1,8 @@
 diff --git a/app/assets/javascripts/discourse/components/topic-navigation.js.es6 b/app/assets/javascripts/discourse/components/topic-navigation.js.es6
-index ecae615..4af6b6c 100644
+index 1f06f87..b6ef54d 100644
 --- a/app/assets/javascripts/discourse/components/topic-navigation.js.es6
 +++ b/app/assets/javascripts/discourse/components/topic-navigation.js.es6
-@@ -105,6 +105,7 @@ export default Ember.Component.extend({
+@@ -110,6 +110,7 @@ export default Ember.Component.extend({
    },
  
    didInsertElement() {
@@ -10,7 +10,7 @@ index ecae615..4af6b6c 100644
      this._super();
  
      this.appEvents
-@@ -120,6 +121,11 @@ export default Ember.Component.extend({
+@@ -125,6 +126,11 @@ export default Ember.Component.extend({
      }
  
      this._checkSize();
